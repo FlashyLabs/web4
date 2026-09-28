@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security
+    url: https://github.com/FlashyLabs/web4/blob/main/SECURITY.md
+    about: Something that should not be filed in the open — read SECURITY.md first.
+  - name: A vulnerability in a protocol or product on the map
+    url: https://github.com/FlashyLabs/web4/blob/main/stack.md
+    about: Report it to that repository, not here. The map names the repo for every layer.

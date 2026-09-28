@@ -1,0 +1,13 @@
+{
+  "name": "@flashylabs/web4",
+  "version": "0.1.0",
+  "private": true,
+  "description": "The human front door to the Web 4 stack: the map, the architecture, the principles, and the rule for how a new protocol joins.",
+  "type": "module",
+  "scripts": {
+    "test": "node --test \"test/**/*.test.mjs\""
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

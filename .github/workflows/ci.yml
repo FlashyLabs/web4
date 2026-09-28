@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: npm test (Node 22, no install)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # This repository has no dependencies and no install step. If a future
+      # change adds one, this job should fail on that change, not hide it.
+      - name: Refuse a dependency
+        run: |
+          node -e '
+            const pkg = JSON.parse(require("node:fs").readFileSync("package.json", "utf8"));
+            for (const key of ["dependencies", "devDependencies", "peerDependencies", "optionalDependencies"]) {
+              if (pkg[key] && Object.keys(pkg[key]).length) {
+                console.error(`package.json declares ${key}; this repository installs nothing.`);
+                process.exit(1);
+              }
+            }
+          '
+
+      - name: Refuse a LICENSE file
+        run: |
+          if ls LICENSE* LICENCE* 2>/dev/null | grep -q .; then
+            echo "The licence is declared once, in tools/estate-licences.mjs in flashyos, never here."
+            exit 1
+          fi
+
+      - run: npm test
