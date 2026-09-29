@@ -1,0 +1,14 @@
+{
+  "mesh": "flashyos/1",
+  "org": {
+    "slug": "web4",
+    "name": "Web4",
+    "profile": "https://app.flashyos.com/org/web4"
+  },
+  "capabilities": [
+    "content-exchange"
+  ],
+  "wants": "https://api.flashyos.com/api/v1/network/roadmap",
+  "api": "https://api.flashyos.com",
+  "join": "https://flashyos.com/join"
+}

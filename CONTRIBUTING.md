@@ -24,6 +24,31 @@ This repository is a map, so a contribution is a correction to what it says, a c
 - A `LICENSE` file, or a licence field in `package.json`. The licence is declared once, in `tools/estate-licences.mjs` in flashyos, and this repository does not decide its own.
 - A dependency. `package.json` has none and `npm test` runs with no install step.
 
+## Vendoring this generator
+
+The institutional front door is one config-driven, dependency-free generator, built here so the estate's other eight protocol repositories can serve the same door without forking it. A sibling copies exactly these files, unchanged, and brings its own inputs:
+
+**Copied byte-identical (the generator set):**
+
+- `scripts/build-site.mjs` — the generator itself
+- `scripts/mesh.mjs` — the flashyos/1 handshake and AAO charter, derived from the charter
+- `vendor-stack.mjs` — the `web4/1` checker (itself vendored from [stack.json](https://github.com/FlashyLabs/stack.json))
+- `schema/site-config-1.json` — the `site-config/1` contract the generator validates its input against
+- `brand/` — the whole Flashy brand kit, with its `MANIFEST.sha256`
+- `estate-ring.json` — the live estate ring the footer links (vendored from flashyos)
+- `vercel.json` — output directory `site`, no framework
+
+Each carries a drift test that reports **unknown, never pass**, when the source checkout is absent. Change one of these in a sibling and you have forked the door; change it here and re-vendor.
+
+**Brought by each repository (never copied):**
+
+- `site.config.json` — everything property-specific, validated as `site-config/1`
+- `.well-known/stack.json` — the byte-identical copy of the shared map
+- `flashyos.roles.json` and `directory.fragment.json` — the repository's own charter and node
+- `README.md` and `docs/` — the repository's own prose
+
+The generator reads no network at build (`test/build.test.mjs` greps for it) and writes the whole of `site/`; nothing under `site/` is edited by hand.
+
 ## Prose
 
 First sentences are the point. Say what a thing is before saying what it is not; say what is true before saying what is planned; and when a sentence starts "This document outlines", delete it and start with the next one.

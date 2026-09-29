@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Web 4 — the agentic internet</title>
+<meta name="description" content="Web 4 is the agentic internet — a stack of open protocols through which software agents discover, identify, authorize, trust, transact with and audit one another.">
+<link rel="canonical" href="https://flashylabs.github.io/web4/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Web 4">
+<meta property="og:title" content="Web 4 — the agentic internet">
+<meta property="og:description" content="Web 4 is the agentic internet — a stack of open protocols through which software agents discover, identify, authorize, trust, transact with and audit one another.">
+<meta property="og:url" content="https://flashylabs.github.io/web4/">
+<meta property="og:image" content="https://flashylabs.github.io/web4/og-card.svg">
+<meta name="twitter:card" content="summary_large_image">
+<style>/*
+ * Flashy Group — brand tokens. Canonical copy.
+ *
+ * CANONICAL LOCATION: flashy-group/brand/ — every other repo holds a
+ * vendored copy of this directory and a drift test against MANIFEST.sha256.
+ * Change it HERE, re-run sync.sh, and carry the copies out; never edit a
+ * vendored copy in place.
+ *
+ * Source: Flashy Brand & Press Kit, Rev 01 (2026). The rules, condensed:
+ *
+ *   - Ground is Ink on Paper or Paper on Ink. Nothing else.
+ *   - Each property uses exactly ONE accent, applied to the bolt, the
+ *     suffix lozenge, and at most one interactive state. Accents are never
+ *     page backgrounds, never gradients, never two at once in a lockup.
+ *   - Archivo Black above 40px (uppercase H1, -3.5% tracking, 0.9 leading);
+ *     Plus Jakarta Sans below 40px; JetBrains Mono for domains, tokens,
+ *     tickers, timestamps, and eyebrow labels (0.16em tracking, uppercase).
+ *   - Motion is one gesture: 90ms steps(2) strike, 240ms settle. Behind
+ *     prefers-reduced-motion, always.
+ *
+ * A property stylesheet maps ITS one accent onto --brand-accent and never
+ * references another property's accent directly.
+ */
+
+:root {
+  /* Ground */
+  --flashy-ink: #08090A;
+  --flashy-ink-raised: #0D0E10;
+  --flashy-ink-panel: #141618;
+  --flashy-paper: #F5F5F3;
+
+  /* Accents — one per property, see USAGE.md for the assignment table */
+  --flashy-mint: #12E29B;   /* flashyos.com        — The operating layer */
+  --flashy-blue: #5B8CFF;   /* flashyid.com        — Identity and verification */
+  --flashy-violet: #B084FF; /* flashymind.com      — Intelligence products */
+  --flashy-ember: #FF8A4C;  /* flashy.academy      — Learning and certification */
+  --flashy-gold: #FFC93C;   /* flashy.gold         — Rewards and points economy */
+  --flashy-cyan: #3ED8F0;   /* flashynetwork.com   — Infrastructure and partners */
+
+  /* Type — load via next/font/google so each site self-hosts the files
+     (flashy-network's CSP forbids font CDNs; one pattern everywhere). */
+  --flashy-font-display: 'Archivo Black', 'Arial Black', sans-serif;
+  --flashy-font-body: 'Plus Jakarta Sans', 'Helvetica Neue', Arial, sans-serif;
+  --flashy-font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Consolas, monospace;
+
+  /* Display setting per the kit */
+  --flashy-display-tracking: -0.035em;
+  --flashy-display-leading: 0.9;
+  --flashy-eyebrow-tracking: 0.16em;
+
+  /* Motion — the bolt strikes, it does not spin */
+  --flashy-strike-duration: 90ms;
+  --flashy-strike-easing: steps(2, end);
+  --flashy-settle-duration: 240ms;
+  --flashy-settle-easing: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+:root{--accent:var(--flashy-gold);--accent-hex:#FFC93C;
+  --ground:var(--flashy-paper);--ink:var(--flashy-ink);--panel:#EDEDEA;--line:#D8D8D3;--soft:#55554F;}
+@media (prefers-color-scheme:dark){:root{--ground:var(--flashy-ink);--ink:var(--flashy-paper);--panel:var(--flashy-ink-panel);--line:#22242700;--line:#242629;--soft:#A6A6A0;}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ground);color:var(--ink);
+  font:16.5px/1.62 var(--flashy-font-body)}
+.wrap{max-width:52rem;margin:0 auto;padding:0 1rem 4rem}
+a{color:inherit;text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:2px}
+a:hover{color:var(--accent)}
+h1{font-family:var(--flashy-font-display);font-weight:400;text-transform:uppercase;
+  letter-spacing:var(--flashy-display-tracking);line-height:var(--flashy-display-leading);
+  font-size:clamp(2rem,6vw,3.2rem);margin:0 0 1rem}
+h2{font-size:1.35rem;font-weight:700;margin:2.6rem 0 .6rem}
+h3{font-size:1.05rem;font-weight:700;margin:1.4rem 0 .3rem}
+p{margin:0 0 1rem}
+.eyebrow{font-family:var(--flashy-font-mono);font-size:.68rem;letter-spacing:var(--flashy-eyebrow-tracking);
+  text-transform:uppercase;color:var(--accent);margin:0 0 .7rem}
+.dek{font-size:1.15rem;color:var(--soft);max-width:40rem}
+code{font-family:var(--flashy-font-mono);font-size:.85em;background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:.05em .3em}
+pre{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:8px;padding:.85rem 1rem;overflow-x:auto;margin:1.1rem 0}
+pre code{border:0;background:none;padding:0;font-size:.82rem}
+table{border-collapse:collapse;width:100%;font-size:.9rem}
+.tw{overflow-x:auto;margin:1.2rem 0}
+th{font-family:var(--flashy-font-mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);text-align:left;font-weight:500;padding:.45rem .7rem .45rem 0;border-bottom:1px solid var(--line);vertical-align:bottom}
+td{padding:.5rem .7rem;border-bottom:1px solid var(--line);vertical-align:top}
+td:first-child,th:first-child{padding-left:0}
+.num{font-family:var(--flashy-font-mono);color:var(--accent)}
+.tag{font-family:var(--flashy-font-mono);font-size:.62rem;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--line);border-radius:999px;padding:.08rem .45rem;white-space:nowrap;color:var(--soft)}
+.rule{border-left:3px solid var(--accent);padding:.1rem 0 .1rem 1rem;margin:1.4rem 0}
+.rule h3{margin:0 0 .3rem}
+.rule p{margin:0;color:var(--soft);font-size:.96rem}
+ol.ladder{list-style:none;margin:1.2rem 0;padding:0;counter-reset:rung}
+ol.ladder li{counter-increment:rung;border-top:1px solid var(--line);padding:.9rem 0 .9rem 2.4rem;position:relative}
+ol.ladder li::before{content:counter(rung);position:absolute;left:0;top:.9rem;font-family:var(--flashy-font-mono);color:var(--accent);font-size:1.1rem}
+ol.ladder .who{font-family:var(--flashy-font-mono);font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;color:var(--soft);display:block}
+.pieces{list-style:none;margin:1.2rem 0;padding:0}
+.pieces li{border-top:1px solid var(--line);padding:.7rem 0;display:flex;gap:.8rem;align-items:baseline;flex-wrap:wrap}
+.pieces .l{font-family:var(--flashy-font-mono);font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);min-width:8rem}
+.head{border-bottom:1px solid var(--line)}
+.head .in{max-width:52rem;margin:0 auto;padding:.8rem 1rem;display:flex;align-items:center;gap:.7rem;flex-wrap:wrap}
+.wordmark{display:flex;align-items:center;gap:.5rem;text-decoration:none;color:var(--ink);font-weight:800;letter-spacing:-.01em}
+.nav{display:flex;gap:.95rem;flex-wrap:wrap;margin-left:auto}
+.nav a{font-family:var(--flashy-font-mono);font-size:.72rem;letter-spacing:.04em;text-transform:uppercase;color:var(--soft);text-decoration:none}
+.nav a:hover,.nav a[aria-current]{color:var(--accent)}
+.hero{padding:3rem 0 1.5rem}
+.foot{border-top:1px solid var(--line);margin-top:3.5rem}
+.foot .in{max-width:52rem;margin:0 auto;padding:1.6rem 1rem 2.4rem}
+.foot h4{font-family:var(--flashy-font-mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);margin:0 0 .5rem;font-weight:500}
+.ring{display:flex;flex-wrap:wrap;gap:.35rem .9rem;margin:0 0 1.2rem}
+.ring a{font-size:.8rem;color:var(--soft);text-decoration:none}
+.ring a:hover{color:var(--accent)}
+.foot-line{font-family:var(--flashy-font-mono);font-size:.68rem;color:var(--soft);line-height:1.8;border-top:1px solid var(--line);padding-top:1rem}</style>
+</head>
+<body>
+<header class="head"><div class="in">
+  <a class="wordmark" href="./"><svg class="bolt" viewBox="0 0 100 120" width="22" height="26" role="img" aria-label="Flashy bolt"><path d="M66 2 L18 68 H44 L34 118 L82 48 H54 Z" fill="var(--accent)"/></svg><span>Web 4</span></a>
+  <nav class="nav" aria-label="Primary">
+      <a href="./" aria-current="page">Home</a>
+      <a href="stack/">The stack</a>
+      <a href="principles/">Principles</a>
+      <a href="joining/">Joining</a>
+      <a href="why/">Why</a>
+      <a href="faq/">FAQ</a>
+  </nav>
+</div></header>
+<main><div class="wrap">
+
+<div class="hero">
+  <svg class="bolt" viewBox="0 0 100 120" width="56" height="67" role="img" aria-label="Flashy bolt"><path d="M66 2 L18 68 H44 L34 118 L82 48 H54 Z" fill="var(--accent)"/></svg>
+  <p class="eyebrow">web4/1 · the map</p>
+  <h1>Web 4 — the agentic internet</h1>
+  <p class="dek">Web 4 is the agentic internet — a stack of open protocols through which software agents discover, identify, authorize, trust, transact with and audit one another.</p>
+</div>
+
+<p>This repository is the human front door to that stack — for anyone who needs the whole thing
+legible in ninety seconds. It holds no protocol code: the map, the
+<a href="principles/">principles</a>, and the rule for
+<a href="joining/">how a protocol joins</a>. The machine-readable twin is
+<a href="https://github.com/FlashyLabs/stack.json" rel="noopener">stack.json</a>, served at
+<a href=".well-known/stack.json">/.well-known/stack.json</a>; this page renders the human table
+and never duplicates that file's data.</p>
+
+<h2>The stack</h2>
+<p>Nine layers, each answering one question, composed so a single query travels the whole stack.
+The standalone reference is <a href="stack/">the stack page</a>; the table below is
+rendered from the <a href=".well-known/stack.json">stack.json</a> copy this repository serves —
+the figures are never typed into this page.</p>
+<div class="tw"><table>
+<thead><tr><th>#</th><th>Layer</th><th>Question</th><th>Repos</th><th>Contract</th></tr></thead>
+<tbody>
+<tr><td class="num">1</td><td>Identity</td><td>Who are you?</td><td><a href="https://github.com/FlashyLabs/flashyid-spec" rel="noopener">flashyid-spec</a>, <a href="https://github.com/FlashyLabs/flashyid" rel="noopener">flashyid</a></td><td><code>delegation/1</code></td></tr>
+<tr><td class="num">2</td><td>Graph</td><td>What exists?</td><td><a href="https://github.com/FlashyLabs/agentgraph" rel="noopener">agentgraph</a>, <a href="https://github.com/FlashyLabs/therealm" rel="noopener">therealm</a></td><td><code>graph/1, realm/1</code></td></tr>
+<tr><td class="num">3</td><td>Discovery</td><td>Who can accomplish this intent?</td><td><a href="https://github.com/FlashyLabs/intent-spec" rel="noopener">intent-spec</a>, <a href="https://github.com/FlashyLabs/intentmesh" rel="noopener">intentmesh</a></td><td><code>intent/1</code></td></tr>
+<tr><td class="num">4</td><td>Trust</td><td>Should I deal with you?</td><td><a href="https://github.com/FlashyLabs/magician" rel="noopener">magician</a>, <a href="https://github.com/FlashyLabs/Rites-Network" rel="noopener">Rites-Network</a>, trustgraph <span class="tag">planned</span></td><td><code>trust/1, ritual/1</code></td></tr>
+<tr><td class="num">5</td><td>Gateway</td><td>How do I connect to the old web?</td><td><a href="https://github.com/FlashyLabs/agent-wellknown" rel="noopener">agent-wellknown</a>, <a href="https://github.com/FlashyLabs/agent-dns" rel="noopener">agent-dns</a>, <a href="https://github.com/FlashyLabs/bastion" rel="noopener">bastion</a></td><td><code>agent/1, agent-dns/1</code></td></tr>
+<tr><td class="num">6</td><td>Representation</td><td>How is the org shown to machines?</td><td><a href="https://github.com/FlashyLabs/aao" rel="noopener">aao</a></td><td><code>aao/0.1</code></td></tr>
+<tr><td class="num">7</td><td>Execution</td><td>How does it operate?</td><td><a href="https://github.com/FlashyLabs/flashyos" rel="noopener">flashyos</a>, <a href="https://github.com/FlashyLabs/flashyos-spec" rel="noopener">flashyos-spec</a>, <a href="https://github.com/FlashyLabs/flashyos-tools" rel="noopener">flashyos-tools</a>, <a href="https://github.com/FlashyLabs/agentfile" rel="noopener">agentfile</a></td><td><code>—</code></td></tr>
+<tr><td class="num">8</td><td>Commerce</td><td>How does value move?</td><td><a href="https://github.com/FlashyLabs/agentpay" rel="noopener">agentpay</a>, <a href="https://github.com/FlashyLabs/flashyos-wdk" rel="noopener">flashyos-wdk</a>, <a href="https://github.com/FlashyLabs/flashy-rails" rel="noopener">flashy-rails</a>, <a href="https://github.com/FlashyLabs/flashy-ledger" rel="noopener">flashy-ledger</a>, <a href="https://github.com/FlashyLabs/flashy-contracts" rel="noopener">flashy-contracts</a></td><td><code>pay-policy/1</code></td></tr>
+<tr><td class="num">9</td><td>Audit</td><td>What happened?</td><td>agentledger <span class="tag">planned</span>, <a href="https://github.com/FlashyLabs/chronicle" rel="noopener">chronicle</a>, <a href="https://github.com/FlashyLabs/flashy-network" rel="noopener">flashy-network</a></td><td><code>action-ledger/1, chronicle/1</code></td></tr>
+</tbody>
+</table></div>
+<p><strong>Principle:</strong> Own the open protocols through which agents discover, identify, authorize, trust, transact with and audit one another — not the agents.</p>
+
+<h2>Where to go next</h2>
+<ul>
+<li><a href="stack/">The stack</a> — every layer, its question, its repos and its status.</li>
+<li><a href="principles/">Principles</a> — the five refusals the estate builds by.</li>
+<li><a href="joining/">Joining</a> — the five-rung ladder a protocol climbs to become a standard.</li>
+<li><a href="why/">Why we built it</a> — the argument, layer by layer.</li>
+<li><a href="faq/">FAQ</a> — six honest answers.</li>
+</ul>
+</div></main>
+<footer class="foot"><div class="in">
+<h4>The estate</h4>
+<div class="ring">
+<a href="https://gord.holdings" rel="noopener">Gord Holdings</a>
+<a href="https://gord.capital" rel="noopener">Gord Capital</a>
+<a href="https://gord.enterprises" rel="noopener">Gord Enterprises</a>
+<a href="https://flashyos.com" rel="noopener">FlashyOS</a>
+<a href="https://flashyid.com" rel="noopener">Flashy ID</a>
+<a href="https://flashynetwork.com" rel="noopener">Flashy Network</a>
+<a href="https://flashy.gold" rel="noopener">Flashy Gold</a>
+<a href="https://claimyour.gold" rel="noopener">ClaimYour.Gold</a>
+<a href="https://flashy.academy" rel="noopener">Flashy Academy</a>
+<a href="https://flashygroup.com" rel="noopener">Flashy Group</a>
+<a href="https://intentmesh.org" rel="noopener">IntentMesh</a>
+<a href="https://rites.network" rel="noopener">Rite Protocol</a>
+<a href="https://magician.network" rel="noopener">Magician</a>
+<a href="https://ritualos.com" rel="noopener">RitualOS</a>
+<a href="https://flashy.social" rel="noopener">Flashy Social</a>
+<a href="https://flashyfinance.com" rel="noopener">Flashy Finance</a>
+<a href="https://flashy.fun" rel="noopener">Flashy Fun</a>
+<a href="https://botz.ventures" rel="noopener">Botz Ventures</a>
+<a href="https://botz.games" rel="noopener">Botz Games</a>
+<a href="https://metaversegroup.io" rel="noopener">Metaverse Group</a>
+<a href="https://metaverse.ventures" rel="noopener">Metaverse Ventures</a>
+<a href="https://metaverse.properties" rel="noopener">Metaverse Properties</a>
+<a href="https://metaverse.casino" rel="noopener">Metaverse Casino</a>
+<a href="https://4.ventures" rel="noopener">4.Ventures</a>
+<a href="https://nft.capital" rel="noopener">NFT Capital</a>
+<a href="https://gda.group" rel="noopener">GDA Group</a>
+<a href="https://mlgblockchain.com" rel="noopener">MLG Blockchain</a>
+<a href="https://michaelgord.com" rel="noopener">Michael Gord</a>
+</div>
+<p class="foot-line">web4/1 · a Gord &amp; Flashy estate stack · the machine twin is
+<a href="https://github.com/FlashyLabs/stack.json" rel="noopener">stack.json</a>, served at
+<a href=".well-known/stack.json">/.well-known/stack.json</a> ·
+<a href="faq/">FAQ</a> · <a href="llms.txt">llms.txt</a><br>
+No repository on the map is public or launched today; a status is a measurement, not a promise.
+This site makes zero external requests. Licence: declared at launch in the estate register.</p>
+</div></footer>
+</body>
+</html>

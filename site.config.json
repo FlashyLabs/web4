@@ -1,0 +1,62 @@
+{
+  "property": "web4",
+  "domain": null,
+  "title": "Web 4 — the agentic internet",
+  "pitch": "Web 4 is the agentic internet — a stack of open protocols through which software agents discover, identify, authorize, trust, transact with and audit one another.",
+  "layer": "the map",
+  "contract": "web4/1",
+  "accent": "--flashy-gold",
+  "refusals": [
+    {
+      "title": "Own the protocols, not the agents",
+      "body": "The estate owns the open protocols through which agents discover, identify, authorize, trust, transact with and audit one another — and not the agents themselves. An agent is a product somebody else will build better and cheaper; the protocol it must speak to be discovered, trusted and paid is where the value sits."
+    },
+    {
+      "title": "Fewer businesses than brands",
+      "body": "Roughly seven protocol businesses plus a universal graph, under more names than that. A name is cheap; a business is a licence entry, a hygiene row and a person accountable for it — so the map says which is which: a layer is a business, a repo is a name."
+    },
+    {
+      "title": "Spec-first",
+      "body": "Every protocol ships as a spec plus a dependency-free checker, is wired into mesh-lint and conformance-kit, proves one adopter, and only then becomes a business. A checker with dependencies is a check that can quietly not run, and a protocol nobody else adopts is an internal format wearing a version number."
+    },
+    {
+      "title": "Open the protocols, keep the products",
+      "body": "Spec repositories become public and open-licensed at each protocol's launch; implementations and services stay private. A protocol is only worth owning if others can conform to it, and they cannot conform to a spec they cannot read — the two halves are separated by repository so the line is a fact about a repo, not a judgement made per file."
+    },
+    {
+      "title": "Structural enforcement over guidelines",
+      "body": "An agent cannot make an intent public, self-witness, widen a grant or self-approve a consented hop — because no parameter exists to do any of them. A guideline is a sentence an agent can be prompted past; a missing parameter is not. The refusals are the product."
+    }
+  ],
+  "faq": [
+    {
+      "q": "What is Web 4?",
+      "a": "Web 4 is the agentic internet: a stack of open protocols through which software agents discover, identify, authorize, trust, transact with and audit one another. This repository is the human front door to that stack — the map, the architecture and the principles — and it holds no protocol code of its own."
+    },
+    {
+      "q": "Is this the same as \"the AAO Stack\"?",
+      "a": "No. AAO — an Agentic Autonomous Organization — is how a single organisation is represented and operated to machines, and it is layers 6 and 7 of the nine. Web 4 is the whole stack around it, from identity at the bottom to audit at the top."
+    },
+    {
+      "q": "Which of these is live?",
+      "a": "None is a released standard. Every spec on the map is draft, every implementation is private, and no repository is public or launched today. A protocol becomes a standard only after an independent adopter is named, and its licence is declared at that launch, in the estate register, never before."
+    },
+    {
+      "q": "Why is the spec public and the implementation private?",
+      "a": "A protocol is only worth owning if others can conform to it, so the spec goes public and open-licensed at launch. The implementation is the estate's own edge and stays private — you conform to the spec, not to the product, and a private implementation interoperates fine with a public spec."
+    },
+    {
+      "q": "Can my agent join without an account?",
+      "a": "Yes. Every protocol ships a dependency-free checker that runs with no install and no key, and a valid document can be produced, published, read and merged by somebody who has never contacted the estate. There is no field only we can issue and no callback to a server we run."
+    },
+    {
+      "q": "Who defines the terms?",
+      "a": "The estate does, today, and says so plainly rather than claiming to be a neutral foundation it is not. Each protocol's governance is written down, dated and narrow enough to be checked, and outside seats are added when independent organisations run a protocol in production and want a say."
+    }
+  ],
+  "links": {
+    "hub": "https://github.com/FlashyLabs/web4",
+    "spec": "https://github.com/FlashyLabs/stack.json",
+    "repo": "https://github.com/FlashyLabs/web4"
+  }
+}

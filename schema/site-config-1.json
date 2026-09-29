@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/FlashyLabs/web4/schema/site-config-1.json",
+  "title": "site-config/1 — the config a protocol repository's institutional front door is generated from",
+  "description": "One document per property, validated as site-config/1. build-site.mjs reads it, plus the repository's own .well-known/stack.json copy, its AAO charter and the vendored brand kit, and writes the whole site/. Everything property-specific lives here, so the generator itself is vendored unchanged across the estate's protocol repositories. Keys prefixed x- are extensions and allowed anywhere; every other key is closed.",
+  "type": "object",
+  "required": ["property", "domain", "title", "pitch", "layer", "contract", "accent", "refusals", "faq", "links"],
+  "properties": {
+    "property": {
+      "type": "string",
+      "description": "The property slug, e.g. web4. Machine-safe.",
+      "pattern": "^[a-z][a-z0-9.-]*$"
+    },
+    "domain": {
+      "description": "The property's own domain, or null when it has none yet and deploys at the estate Pages URL. Never a guess.",
+      "oneOf": [
+        { "type": "string", "pattern": "^[a-z0-9.-]+$" },
+        { "type": "null" }
+      ]
+    },
+    "title": { "type": "string", "minLength": 1 },
+    "pitch": { "type": "string", "minLength": 1 },
+    "layer": {
+      "type": "string",
+      "minLength": 1,
+      "description": "How this property sits in the stack — a stack layer name, or 'the map' for the hub."
+    },
+    "contract": {
+      "type": "string",
+      "description": "The protocol contract this property carries, e.g. web4/1 or intent/1 — a lower-case slug, a slash, a dotted version.",
+      "pattern": "^[a-z0-9-]+/[0-9.]+$"
+    },
+    "accent": {
+      "type": "string",
+      "description": "The one brand accent, named as a --flashy-* token from the vendored brand/tokens.css. The generator resolves it to a hex; a name that names no token fails the build.",
+      "pattern": "^--flashy-[a-z]+$"
+    },
+    "refusals": {
+      "type": "array",
+      "minItems": 1,
+      "description": "The property's structural refusals — what a caller cannot do, phrased as a refusal, one per principle.",
+      "items": {
+        "type": "object",
+        "required": ["title", "body"],
+        "properties": {
+          "title": { "type": "string", "minLength": 1 },
+          "body": { "type": "string", "minLength": 1 }
+        },
+        "patternProperties": { "^x-": {} },
+        "additionalProperties": false
+      }
+    },
+    "faq": {
+      "type": "array",
+      "minItems": 1,
+      "description": "Questions a stranger asks, answered in a couple of honest sentences each. Rendered with FAQPage JSON-LD.",
+      "items": {
+        "type": "object",
+        "required": ["q", "a"],
+        "properties": {
+          "q": { "type": "string", "minLength": 1 },
+          "a": { "type": "string", "minLength": 1 }
+        },
+        "patternProperties": { "^x-": {} },
+        "additionalProperties": false
+      }
+    },
+    "links": {
+      "type": "object",
+      "required": ["hub", "spec", "repo"],
+      "description": "The three links the front door always carries: the human hub, the machine twin or spec, and this repository.",
+      "properties": {
+        "hub": { "$ref": "#/$defs/httpsUrl" },
+        "spec": { "$ref": "#/$defs/httpsUrl" },
+        "repo": { "$ref": "#/$defs/httpsUrl" }
+      },
+      "patternProperties": { "^x-": {} },
+      "additionalProperties": false
+    }
+  },
+  "patternProperties": { "^x-": {} },
+  "additionalProperties": false,
+  "$defs": {
+    "httpsUrl": {
+      "type": "string",
+      "pattern": "^https://[^\\s]+$"
+    }
+  }
+}

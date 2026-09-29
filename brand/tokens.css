@@ -1,0 +1,56 @@
+/*
+ * Flashy Group — brand tokens. Canonical copy.
+ *
+ * CANONICAL LOCATION: flashy-group/brand/ — every other repo holds a
+ * vendored copy of this directory and a drift test against MANIFEST.sha256.
+ * Change it HERE, re-run sync.sh, and carry the copies out; never edit a
+ * vendored copy in place.
+ *
+ * Source: Flashy Brand & Press Kit, Rev 01 (2026). The rules, condensed:
+ *
+ *   - Ground is Ink on Paper or Paper on Ink. Nothing else.
+ *   - Each property uses exactly ONE accent, applied to the bolt, the
+ *     suffix lozenge, and at most one interactive state. Accents are never
+ *     page backgrounds, never gradients, never two at once in a lockup.
+ *   - Archivo Black above 40px (uppercase H1, -3.5% tracking, 0.9 leading);
+ *     Plus Jakarta Sans below 40px; JetBrains Mono for domains, tokens,
+ *     tickers, timestamps, and eyebrow labels (0.16em tracking, uppercase).
+ *   - Motion is one gesture: 90ms steps(2) strike, 240ms settle. Behind
+ *     prefers-reduced-motion, always.
+ *
+ * A property stylesheet maps ITS one accent onto --brand-accent and never
+ * references another property's accent directly.
+ */
+
+:root {
+  /* Ground */
+  --flashy-ink: #08090A;
+  --flashy-ink-raised: #0D0E10;
+  --flashy-ink-panel: #141618;
+  --flashy-paper: #F5F5F3;
+
+  /* Accents — one per property, see USAGE.md for the assignment table */
+  --flashy-mint: #12E29B;   /* flashyos.com        — The operating layer */
+  --flashy-blue: #5B8CFF;   /* flashyid.com        — Identity and verification */
+  --flashy-violet: #B084FF; /* flashymind.com      — Intelligence products */
+  --flashy-ember: #FF8A4C;  /* flashy.academy      — Learning and certification */
+  --flashy-gold: #FFC93C;   /* flashy.gold         — Rewards and points economy */
+  --flashy-cyan: #3ED8F0;   /* flashynetwork.com   — Infrastructure and partners */
+
+  /* Type — load via next/font/google so each site self-hosts the files
+     (flashy-network's CSP forbids font CDNs; one pattern everywhere). */
+  --flashy-font-display: 'Archivo Black', 'Arial Black', sans-serif;
+  --flashy-font-body: 'Plus Jakarta Sans', 'Helvetica Neue', Arial, sans-serif;
+  --flashy-font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Consolas, monospace;
+
+  /* Display setting per the kit */
+  --flashy-display-tracking: -0.035em;
+  --flashy-display-leading: 0.9;
+  --flashy-eyebrow-tracking: 0.16em;
+
+  /* Motion — the bolt strikes, it does not spin */
+  --flashy-strike-duration: 90ms;
+  --flashy-strike-easing: steps(2, end);
+  --flashy-settle-duration: 240ms;
+  --flashy-settle-easing: cubic-bezier(0.2, 0.8, 0.2, 1);
+}

@@ -77,6 +77,15 @@ const NOT_REPOS = new Set([
   'planned',
   'public',
   'launched',
+  // File tokens the README names in its Quick start, Layout and Conformance
+  // sections — vocabulary, not repositories. A slash-bearing path (scripts/…,
+  // .well-known/…) is out of scope by construction; these bare filenames are not.
+  'site.config.json',
+  'vendor-stack.mjs',
+  'estate-ring.json',
+  'flashyos.roles.json',
+  'stack.md',
+  'ARCHITECTURE.md',
 ]);
 
 const LICENCE_LINE =

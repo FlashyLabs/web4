@@ -1,0 +1,174 @@
+{
+  "x-source": "flashyos/apps/marketing/src/lib/estateRing.ts ESTATE_RING (every live estate property); vendored copy, drift-tested by test/estate-ring.test.mjs",
+  "x-generated": "2026-09-29",
+  "properties": [
+    {
+      "domain": "gord.holdings",
+      "name": "Gord Holdings",
+      "role": "The estate: what the group owns, how it is structured, and who is accountable for each part",
+      "vertical": "parent"
+    },
+    {
+      "domain": "gord.capital",
+      "name": "Gord Capital",
+      "role": "The family office capital company",
+      "vertical": "parent"
+    },
+    {
+      "domain": "gord.enterprises",
+      "name": "Gord Enterprises",
+      "role": "The enterprises the group owns outright: operating businesses held on the balance sheet rather than companies the group formed",
+      "vertical": "parent"
+    },
+    {
+      "domain": "flashyos.com",
+      "name": "FlashyOS",
+      "role": "The agent mesh: how organisations’ agents find each other, agree to work together, and seal a verifiable record of it",
+      "vertical": "mesh"
+    },
+    {
+      "domain": "flashyid.com",
+      "name": "Flashy ID",
+      "role": "The identity layer",
+      "vertical": "mesh"
+    },
+    {
+      "domain": "flashynetwork.com",
+      "name": "Flashy Network",
+      "role": "The public settlement record",
+      "vertical": "mesh"
+    },
+    {
+      "domain": "flashy.gold",
+      "name": "Flashy Gold",
+      "role": "The rewards and value layer: what a unit of Flashy Gold is, how it is earned, and what it settles against",
+      "vertical": "mesh"
+    },
+    {
+      "domain": "claimyour.gold",
+      "name": "ClaimYour.Gold",
+      "role": "The claiming and redemption portal, and the consumer front door to the ledger",
+      "vertical": "consumer-apps"
+    },
+    {
+      "domain": "flashy.academy",
+      "name": "Flashy Academy",
+      "role": "The knowledge layer",
+      "vertical": "consumer-apps"
+    },
+    {
+      "domain": "flashygroup.com",
+      "name": "Flashy Group",
+      "role": "The operating ecosystem the firm assembled, and the brand canon the other properties vendor from",
+      "vertical": "mesh"
+    },
+    {
+      "domain": "intentmesh.org",
+      "name": "IntentMesh",
+      "role": "The open format for publishing what an organisation intends to do, and the published condition under which it would leave this estate",
+      "vertical": "mesh"
+    },
+    {
+      "domain": "rites.network",
+      "name": "Rite Protocol",
+      "role": "The open standard for the present tense of the record: recurring observances an agent performs with evidence, a second party witnesses with a basis of its own, and only a named human gives consequence",
+      "vertical": "mesh"
+    },
+    {
+      "domain": "magician.network",
+      "name": "Magician",
+      "role": "An operating system for superconnectors: consented introductions along trusted paths, with outcomes sealed so the graph learns only from what actually happened",
+      "vertical": "mesh"
+    },
+    {
+      "domain": "ritualos.com",
+      "name": "RitualOS",
+      "role": "The habit layer: an operating system for the things a person does every day, where completing one is a settled event rather than a checkbox",
+      "vertical": "consumer-apps"
+    },
+    {
+      "domain": "flashy.social",
+      "name": "Flashy Social",
+      "role": "The social surface of the Flashy economy, where what people do together is worth something and the ledger says how much",
+      "vertical": "consumer-apps"
+    },
+    {
+      "domain": "flashyfinance.com",
+      "name": "Flashy Finance",
+      "role": "Consumer finance on the group’s own settlement rails — balances, payouts and redemption, without renting a processor to move value the estate already clears",
+      "vertical": "consumer-apps"
+    },
+    {
+      "domain": "flashy.fun",
+      "name": "Flashy Fun",
+      "role": "Games and play as an entry point to the economy: the lowest-commitment way to earn a first unit and the widest top of the funnel the group has",
+      "vertical": "consumer-apps"
+    },
+    {
+      "domain": "botz.ventures",
+      "name": "Botz Ventures",
+      "role": "Formation for robotics — the companies the group incubates against the six conditions",
+      "vertical": "robotics"
+    },
+    {
+      "domain": "botz.games",
+      "name": "Botz Games",
+      "role": "The arena: where machines are put against each other in public and the results are recorded",
+      "vertical": "robotics"
+    },
+    {
+      "domain": "metaversegroup.io",
+      "name": "Metaverse Group",
+      "role": "The virtual-world property business: the Atlas, the Register, and the Code",
+      "vertical": "virtual-worlds"
+    },
+    {
+      "domain": "metaverse.ventures",
+      "name": "Metaverse Ventures",
+      "role": "Formation inside virtual worlds: the operators, marketplaces and tooling a world needs once land has an owner and a price",
+      "vertical": "virtual-worlds"
+    },
+    {
+      "domain": "metaverse.properties",
+      "name": "Metaverse Properties",
+      "role": "The property register for land held across virtual worlds, scored against the six conditions and published with what each parcel actually cost",
+      "vertical": "virtual-worlds"
+    },
+    {
+      "domain": "metaverse.casino",
+      "name": "Metaverse Casino",
+      "role": "Held, and deliberately inert",
+      "vertical": "virtual-worlds"
+    },
+    {
+      "domain": "4.ventures",
+      "name": "4.Ventures",
+      "role": "The canonical incubator: one published term sheet, applied to every company the group forms, so a founder can compare it honestly against another offer",
+      "vertical": "virtual-worlds"
+    },
+    {
+      "domain": "nft.capital",
+      "name": "NFT Capital",
+      "role": "Digital property, assayed: what a token actually confers, what the category did, and the dated record behind both",
+      "vertical": "digital-property"
+    },
+    {
+      "domain": "gda.group",
+      "name": "GDA Group",
+      "role": "The disruptive-technology merchant bank, and GDA Capital’s home on the web",
+      "vertical": "merchant-banking"
+    },
+    {
+      "domain": "mlgblockchain.com",
+      "name": "MLG Blockchain",
+      "role": "The bank’s engineering practice: how enterprises and governments buy and integrate what the group runs",
+      "vertical": "merchant-banking"
+    },
+    {
+      "domain": "michaelgord.com",
+      "name": "Michael Gord",
+      "role": "The principal: first-person writing and first-hand case studies",
+      "vertical": "person"
+    }
+  ]
+}
