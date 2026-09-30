@@ -89,7 +89,7 @@ const NOT_REPOS = new Set([
 ]);
 
 const LICENCE_LINE =
-  'Licence: to be declared at launch. The estate licence register in flashyos governs; this repository is not yet open-sourced.';
+  'Licence: Apache-2.0, holder Flashy Labs. The estate licence register in flashyos `tools/estate-licences.mjs` is the authority; the full grant is in [LICENSE](LICENSE).';
 
 const MAP_FILES = ['README.md', 'stack.md'];
 
@@ -209,5 +209,18 @@ test('package.json is dependency-free, private, ESM, Node 22', () => {
   for (const key of ['dependencies', 'devDependencies', 'peerDependencies', 'optionalDependencies']) {
     assert.equal(pkg[key], undefined, `${key} must not exist`);
   }
-  assert.equal(pkg.license, undefined, 'the licence is declared in flashyos, never here');
+  // The estate register in flashyos (tools/estate-licences.mjs) is the authority
+  // and names this repository Apache-2.0; the package.json field reflects that
+  // decision, it does not make it.
+  assert.equal(pkg.license, 'Apache-2.0', 'package.json must reflect the register: Apache-2.0');
+});
+
+test('the Apache-2.0 LICENSE is present and names the holder', () => {
+  // The estate register in flashyos opened this repository as Apache-2.0,
+  // holder Flashy Labs, so the full grant must be committed and carry that
+  // holder. The register remains the authority; this file is its expression.
+  const licence = read('LICENSE');
+  assert.match(licence, /Apache License/, 'LICENSE is not the Apache License');
+  assert.match(licence, /Version 2\.0/, 'LICENSE is not version 2.0');
+  assert.match(licence, /Copyright 2026 Flashy Labs/, 'LICENSE does not name the holder (Flashy Labs)');
 });

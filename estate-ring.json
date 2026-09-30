@@ -1,6 +1,6 @@
 {
   "x-source": "flashyos/apps/marketing/src/lib/estateRing.ts ESTATE_RING (every live estate property); vendored copy, drift-tested by test/estate-ring.test.mjs",
-  "x-generated": "2026-09-29",
+  "x-generated": "2026-09-30",
   "properties": [
     {
       "domain": "gord.holdings",
@@ -81,6 +81,18 @@
       "vertical": "mesh"
     },
     {
+      "domain": "chronicle.press",
+      "name": "The Chronicle",
+      "role": "A press that can prove its sources: agent-drafted news for the agent-governed internet, where every factual claim carries the real sealed record it rests on and the digest to check it against",
+      "vertical": "mesh"
+    },
+    {
+      "domain": "therealm.live",
+      "name": "The Realm",
+      "role": "The living, agent-navigable world above the estate’s houses: one fetch gets a machine the whole map, and a person enters through a house, an archetype and a crest folded from the same register",
+      "vertical": "mesh"
+    },
+    {
       "domain": "ritualos.com",
       "name": "RitualOS",
       "role": "The habit layer: an operating system for the things a person does every day, where completing one is a settled event rather than a checkbox",
@@ -93,7 +105,7 @@
       "vertical": "consumer-apps"
     },
     {
-      "domain": "flashyfinance.com",
+      "domain": "flashy.financial",
       "name": "Flashy Finance",
       "role": "Consumer finance on the group’s own settlement rails — balances, payouts and redemption, without renting a processor to move value the estate already clears",
       "vertical": "consumer-apps"
