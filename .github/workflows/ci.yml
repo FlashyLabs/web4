@@ -9,14 +9,18 @@ permissions:
 
 jobs:
   test:
-    name: npm test (Node 22, no install)
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        node: ['22', '24']
     steps:
       - uses: actions/checkout@v4
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: ${{ matrix.node }}
 
       # This repository has no dependencies and no install step. If a future
       # change adds one, this job should fail on that change, not hide it.
