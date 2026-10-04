@@ -25,6 +25,7 @@ jobs:
       # This repository has no dependencies and no install step. If a future
       # change adds one, this job should fail on that change, not hide it.
       - name: Refuse a dependency
+        shell: bash
         run: |
           node -e '
             const pkg = JSON.parse(require("node:fs").readFileSync("package.json", "utf8"));
@@ -40,6 +41,7 @@ jobs:
       # repository Apache-2.0, holder Flashy Labs. The LICENSE must be present
       # and carry that grant and that holder.
       - name: Require the Apache-2.0 LICENSE
+        shell: bash
         run: |
           if [ ! -f LICENSE ]; then
             echo "LICENSE is missing. The estate register names this repository Apache-2.0 (holder Flashy Labs)."
