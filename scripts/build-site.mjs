@@ -262,14 +262,16 @@ This site makes zero external requests. Licence: Apache-2.0, holder Flashy Labs,
 
   /* ── page bodies ── */
 
+  // A repository GitHub reports as private is linked — the map is of what
+  // exists — and SAID to be private beside the link, read from the same
+  // stack.json row, so a reader is not sent to a 404 without warning.
+  const privateTag = (r) => (r.visibility === 'private' ? ' <span class="tag">private</span>' : '');
+  const repoLink = (r) => `<a href="${esc(r.url)}" rel="noopener">${esc(r.name)}</a>${privateTag(r)}`;
+
   const layerRows = stack.layers
     .map((L, i) => {
       const repos = L.repos
-        .map((r) =>
-          r.url
-            ? `<a href="${esc(r.url)}" rel="noopener">${esc(r.name)}</a>`
-            : `${esc(r.name)} <span class="tag">planned</span>`,
-        )
+        .map((r) => (r.url ? repoLink(r) : `${esc(r.name)} <span class="tag">planned</span>`))
         .join(', ');
       const contracts = [...new Set(L.repos.map((r) => r.contract).filter(Boolean))].join(', ') || '—';
       return `<tr><td class="num">${i + 1}</td><td>${esc(cap(L.name))}</td><td>${esc(L.question)}</td><td>${repos}</td><td><code>${esc(contracts)}</code></td></tr>`;
@@ -318,7 +320,7 @@ ${layerRows}
     .map((L, i) => {
       const repos = L.repos
         .map((r) => {
-          const name = r.url ? `<a href="${esc(r.url)}" rel="noopener">${esc(r.name)}</a>` : esc(r.name);
+          const name = r.url ? repoLink(r) : esc(r.name);
           const bits = [r.kind, r.status, r.contract].filter(Boolean).map(esc).join(' · ');
           return `<tr><td>${name}</td><td>${bits}</td></tr>`;
         })
@@ -332,7 +334,7 @@ ${repos}
 
   const spanning = (list, heading) =>
     `<h3>${esc(heading)}</h3><div class="tw"><table><tbody>
-${list.map((r) => `<tr><td>${r.url ? `<a href="${esc(r.url)}" rel="noopener">${esc(r.name)}</a>` : esc(r.name)}</td><td>${[r.kind, r.status].filter(Boolean).map(esc).join(' · ')}</td></tr>`).join('\n')}
+${list.map((r) => `<tr><td>${r.url ? repoLink(r) : esc(r.name)}</td><td>${[r.kind, r.status].filter(Boolean).map(esc).join(' · ')}</td></tr>`).join('\n')}
 </tbody></table></div>`;
 
   const stackBody = (pfx) => `
@@ -351,7 +353,9 @@ ${spanning(stack.teaching, 'Teaching')}
 <p>Statuses are per-repository and honest: <code>draft</code> (a spec being written against),
 <code>private</code> (a repository that exists and is not public), <code>private-intended</code>
 (meant to stay private once it is a product) and <code>planned</code> (named, not yet a repository).
-No repository is public or launched today.</p>`;
+A repository tagged <span class="tag">private</span> is one GitHub reported as not public on the
+measured date: its link is kept, because the map is of what exists, and it resolves only for someone
+with access. No repository is public or launched today.</p>`;
 
   const principlesBody = (pfx) => `
 <div class="hero">
